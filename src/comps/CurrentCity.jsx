@@ -11,19 +11,9 @@ export default function CurrentCity() {
   const [checked, setChecked] = useState(false);
   const {
     currentCity: { LocalizedName, Key },
-    currentCityForecast: {
-      Temperature: { Minimum, Maximum },
-      Day: { IconPhrase },
-    },
   } = useSelector((state) => state.currentCityReducer);
 
   const addOrRmvFav = () => {
-    if (checked) {
-      const avgDailyTemp = (Minimum + Maximum) / 2;
-      dispatch(addFavorite(Key, LocalizedName, avgDailyTemp, IconPhrase));
-    } else {
-      dispatch(rmvFavorite(Key));
-    }
     setChecked((checked) => !checked);
   };
 
