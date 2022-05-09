@@ -8,9 +8,9 @@ import {
 } from "../actionTypes";
 
 const initialState = {
-  currentCity: MOCK_CITY,
-  currentCityForecast: MOCK_FORECAST,
-  currentCityWeather: MOCK_WEATHER,
+  currentCity: {},
+  currentCityForecast: [],
+  currentCityWeather: {},
 };
 
 export function currentCityReducer(state = initialState, { type, payload }) {

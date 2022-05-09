@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Autocomplete, Button, TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { API_KEY } from "../redux/actionTypes";
+import { Autocomplete, TextField } from "@mui/material";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import CurrentCity from "./CurrentCity";
@@ -11,6 +9,8 @@ import {
   setCurrentCityWeather,
 } from "../redux/Actions/currentCityActions";
 import { useDebounce } from "use-debounce";
+import { API_KEY, EXCEPTIONS } from "../consts";
+import { setErrorMsg } from "../redux/Actions/generalActions";
 
 export default function SearchPage() {
   const [inputValue, setInputValue] = useState("");
@@ -23,15 +23,19 @@ export default function SearchPage() {
     if (inputValue.length > 0) {
       axios
         .get(
-          `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${debouncedInput}`
+          `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${
+            inputValue?.split(", ")[0]
+          }`
         )
-        .then((res) => setAutoCompleteList(res.data));
+        .then((res) => setAutoCompleteList(res.data))
+        .catch(() => dispatch(setErrorMsg(EXCEPTIONS.COULD_NOT_FETCH_AUTOCOMP)));
+    } else {
+      setAutoCompleteList([]);
     }
-    console.log("changed");
-  }, [debouncedInput]);
+  }, [dispatch, debouncedInput]);
 
-  const handleSearch = () => {
-    dispatch(setCurrentCity(inputValue));
+  const handleSearch = (searchText) => {
+    dispatch(setCurrentCity(searchText.split(", ")[0]));
     dispatch(setCurrentCityForecast(currentCity.Key));
     dispatch(setCurrentCityWeather(currentCity.key));
   };
@@ -46,7 +50,9 @@ export default function SearchPage() {
           options={autoCompleteList.map(
             ({ LocalizedName, Country }) => `${LocalizedName}, ${Country.LocalizedName}`
           )}
-          onChange={(e) => {}}
+          onChange={(e, value) => {
+            handleSearch(value);
+          }}
           onInputChange={(e, value) => setInputValue(value)}
           renderInput={(params) => (
             <TextField
@@ -57,10 +63,6 @@ export default function SearchPage() {
             />
           )}
         />
-        {/* disabled={inputValue === "" || autoCompleteList.length === 0} */}
-        <Button onClick={handleSearch}>
-          <SearchIcon />
-        </Button>
       </div>
       <CurrentCity />
     </div>

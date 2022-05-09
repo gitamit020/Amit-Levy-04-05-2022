@@ -24,10 +24,6 @@ export const MOCK_FORECAST = [
       IconPhrase: "Intermittent clouds",
       HasPrecipitation: false,
     },
-    Sources: ["AccuWeather"],
-    MobileLink:
-      "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=1&unit=c&lang=en-us",
-    Link: "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=1&unit=c&lang=en-us",
   },
   {
     Date: "2022-05-08T07:00:00+03:00",
@@ -54,10 +50,6 @@ export const MOCK_FORECAST = [
       IconPhrase: "Mostly clear",
       HasPrecipitation: false,
     },
-    Sources: ["AccuWeather"],
-    MobileLink:
-      "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=2&unit=c&lang=en-us",
-    Link: "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=2&unit=c&lang=en-us",
   },
   {
     Date: "2022-05-09T07:00:00+03:00",
@@ -84,10 +76,6 @@ export const MOCK_FORECAST = [
       IconPhrase: "Clear",
       HasPrecipitation: false,
     },
-    Sources: ["AccuWeather"],
-    MobileLink:
-      "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=3&unit=c&lang=en-us",
-    Link: "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=3&unit=c&lang=en-us",
   },
   {
     Date: "2022-05-10T07:00:00+03:00",
@@ -114,10 +102,6 @@ export const MOCK_FORECAST = [
       IconPhrase: "Mostly cloudy",
       HasPrecipitation: false,
     },
-    Sources: ["AccuWeather"],
-    MobileLink:
-      "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=4&unit=c&lang=en-us",
-    Link: "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=4&unit=c&lang=en-us",
   },
   {
     Date: "2022-05-11T07:00:00+03:00",
@@ -144,9 +128,5 @@ export const MOCK_FORECAST = [
       IconPhrase: "Partly cloudy",
       HasPrecipitation: false,
     },
-    Sources: ["AccuWeather"],
-    MobileLink:
-      "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=5&unit=c&lang=en-us",
-    Link: "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=5&unit=c&lang=en-us",
   },
 ];

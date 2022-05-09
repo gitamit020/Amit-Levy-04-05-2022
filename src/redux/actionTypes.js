@@ -6,12 +6,10 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const RMV_FAVORITE = "RMV_FAVORITE";
 export const CLEAR_FAVORITES = "CLEAR_FAVORITES";
 
-// -------- 3 Available API keys ---------
-// --  v1AAIjS1qvgXr2GperDmJDQpoicxWPFR --
-// --  HhiC42zmJzhVPYN9svyGCewbXlVF0scd --
-// -- nbIEZ6q6LUsdP3yjoQP5bRgUdr6J9deAs --
-// ---------------------------------------
+export const TOGGLE_THEME = "TOGGLE_THEME";
+export const TOGGLE_TEMP_UNIT = "TOGGLE_TEMP_UNIT";
 
-export const API_KEY = "HhiC42zmJzhVPYN9svyGCewbXlVF0scd";
-export const INITIAL_CITY_KEY = 215854;
-export const INITIAL_CITY_NAME = "Tel Aviv";
+export const SET_ERROR_MSG = "SET_ERROR_MSG";
+export const CLEAR_ERROR_MSG = "CLEAR_ERROR_MSG";
+
+export const SET_CURRENT_GEO = "SET_CURRENT_GEO";

@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { currentCityReducer } from "./redux/Reducers/currentCityReducer";
 import { favoritesReducer } from "./redux/Reducers/favoritesReducer";
+import { preferencesReducer } from "./redux/Reducers/preferencesReducer";
+import { generalReducer } from "./redux/Reducers/generalReducer";
 import thunk from "redux-thunk";
 import { PersistGate } from "redux-persist/integration/react";
 import persistReducer from "redux-persist/es/persistReducer";
@@ -17,12 +19,14 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favoritesReducer"],
+  whitelist: ["favoritesReducer", "preferencesReducer"],
 };
 
 const mainReducer = combineReducers({
   currentCityReducer,
   favoritesReducer,
+  preferencesReducer,
+  generalReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -46,7 +50,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
