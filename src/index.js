@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { currentCityReducer } from "./redux/Reducers/currentCityReducer";
 import { favoritesReducer } from "./redux/Reducers/favoritesReducer";
 import { preferencesReducer } from "./redux/Reducers/preferencesReducer";
@@ -17,16 +17,16 @@ import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["favoritesReducer", "preferencesReducer"],
+    key: "root",
+    storage,
+    whitelist: ["favoritesReducer", "preferencesReducer"],
 };
 
 const mainReducer = combineReducers({
-  currentCityReducer,
-  favoritesReducer,
-  preferencesReducer,
-  generalReducer,
+    currentCityReducer,
+    favoritesReducer,
+    preferencesReducer,
+    generalReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -39,15 +39,15 @@ const Persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={Persistor}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={Persistor}>
+                <HashRouter>
+                    <App />
+                </HashRouter>
+            </PersistGate>
+        </Provider>
+    </React.StrictMode>
 );
 
 reportWebVitals();
