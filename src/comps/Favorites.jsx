@@ -25,7 +25,7 @@ export default function Favorites() {
         const newFavorites = favorites.map((fav) =>
             axios
                 .get(
-                    `http://dataservice.accuweather.com/currentconditions/v1/${fav.id}?apikey=${API_KEY}`
+                    `https://dataservice.accuweather.com/currentconditions/v1/${fav.id}?apikey=${API_KEY}`
                 )
                 .then((res) => ({ ...fav, currentWeather: res.data[0].Temperature.Metric.Value }))
         );
@@ -43,8 +43,6 @@ export default function Favorites() {
         dispatch(setCurrentCityForecast(key));
         navigate("/searchPage");
     };
-
-    console.log(favorites);
 
     return (
         <div className="favoritesDiv">

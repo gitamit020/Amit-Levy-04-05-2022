@@ -10,7 +10,7 @@ import { setErrorMsg } from './generalActions';
 export const setCurrentCity = cityName => dispatch => {
   axios
         .get(
-            `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${cityName}`
+            `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${cityName}`
         )
         .then(res => dispatch({ type: SET_CURRENT_CITY, payload: res.data }))
         .catch(() =>
@@ -22,7 +22,7 @@ export const setCurrentCityForecast = cityKey => (dispatch, getState) => {
   const { currentCityReducer: { currentCity } } = getState();
   axios
         .get(
-            `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`
+            `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`
         )
         .then(res => dispatch({ type: SET_CURRENT_CITY_FORECAST, payload: res.data }))
         .catch(e =>
@@ -41,7 +41,7 @@ export const setCurrentCityWeather = cityKey => (dispatch, getState) => {
   const { currentCityReducer: { currentCity } } = getState();
 
   axios
-        .get(`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${API_KEY}`)
+        .get(`https://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${API_KEY}`)
         .then(res => dispatch({ type: SET_CURRENT_CITY_WEATHER, payload: res.data }))
         .catch(e =>
             dispatch(

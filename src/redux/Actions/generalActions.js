@@ -19,7 +19,7 @@ export const clearErrorMsg = () => ({
 export const setGEOdata = (longitude, latitude) => dispatch => {
   axios
         .get(
-            `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${latitude},${longitude}`
+            `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${latitude},${longitude}`
         )
         .then(res => dispatch({ type: SET_CURRENT_GEO, payload: res.data.LocalizedName }))
         .catch(e => {

@@ -18,7 +18,7 @@ export default function SearchPage() {
     useEffect(() => {
         if (inputValue.length > 0) {
             axios
-                .get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${inputValue?.split(", ")[0]}`)
+                .get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${inputValue?.split(", ")[0]}`)
                 .then((res) => setAutoCompleteList(res.data))
                 .catch(() => dispatch(setErrorMsg(EXCEPTIONS.COULD_NOT_FETCH_AUTOCOMP)));
         } else {
