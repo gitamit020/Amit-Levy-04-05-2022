@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { currentCityReducer } from "./redux/Reducers/currentCityReducer";
 import { favoritesReducer } from "./redux/Reducers/favoritesReducer";
 import { preferencesReducer } from "./redux/Reducers/preferencesReducer";
