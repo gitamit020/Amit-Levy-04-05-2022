@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.194bb919.css",
-    "main.js": "/static/js/main.b5ac2e9a.js",
-    "static/js/787.ef76b428.chunk.js": "/static/js/787.ef76b428.chunk.js",
-    "static/media/weather-ios-logo-69EE212483-seeklogo.com.png": "/static/media/weather-ios-logo-69EE212483-seeklogo.com.79d09eaf518642abd91b.png",
-    "index.html": "/index.html",
-    "main.194bb919.css.map": "/static/css/main.194bb919.css.map",
-    "main.b5ac2e9a.js.map": "/static/js/main.b5ac2e9a.js.map",
-    "787.ef76b428.chunk.js.map": "/static/js/787.ef76b428.chunk.js.map"
+    "main.css": "/Amit-Levy-04-05-2022/static/css/main.bd6cd552.css",
+    "main.js": "/Amit-Levy-04-05-2022/static/js/main.0a630f32.js",
+    "static/js/787.ef76b428.chunk.js": "/Amit-Levy-04-05-2022/static/js/787.ef76b428.chunk.js",
+    "static/media/weather-ios-logo-69EE212483-seeklogo.com.png": "/Amit-Levy-04-05-2022/static/media/weather-ios-logo-69EE212483-seeklogo.com.79d09eaf518642abd91b.png",
+    "index.html": "/Amit-Levy-04-05-2022/index.html",
+    "main.bd6cd552.css.map": "/Amit-Levy-04-05-2022/static/css/main.bd6cd552.css.map",
+    "main.0a630f32.js.map": "/Amit-Levy-04-05-2022/static/js/main.0a630f32.js.map",
+    "787.ef76b428.chunk.js.map": "/Amit-Levy-04-05-2022/static/js/787.ef76b428.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.194bb919.css",
-    "static/js/main.b5ac2e9a.js"
+    "static/css/main.bd6cd552.css",
+    "static/js/main.0a630f32.js"
   ]
 }
