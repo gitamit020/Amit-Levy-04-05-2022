@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Amit-Levy-04-05-2022/static/css/main.bd6cd552.css",
+    "main.js": "/Amit-Levy-04-05-2022/static/js/main.a826eda8.js",
+    "static/js/787.ef76b428.chunk.js": "/Amit-Levy-04-05-2022/static/js/787.ef76b428.chunk.js",
+    "static/media/weather-ios-logo-69EE212483-seeklogo.com.png": "/Amit-Levy-04-05-2022/static/media/weather-ios-logo-69EE212483-seeklogo.com.79d09eaf518642abd91b.png",
+    "index.html": "/Amit-Levy-04-05-2022/index.html",
+    "main.bd6cd552.css.map": "/Amit-Levy-04-05-2022/static/css/main.bd6cd552.css.map",
+    "main.a826eda8.js.map": "/Amit-Levy-04-05-2022/static/js/main.a826eda8.js.map",
+    "787.ef76b428.chunk.js.map": "/Amit-Levy-04-05-2022/static/js/787.ef76b428.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd6cd552.css",
+    "static/js/main.a826eda8.js"
+  ]
+}
