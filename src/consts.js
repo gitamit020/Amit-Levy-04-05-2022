@@ -1,14 +1,14 @@
-// --------- Available API keys ----------
-// --  v1AAIjS1qvgXr2GperDmJDQpoicxWPFR --
-// --  HhiC42zmJzhVPYN9svyGCewbXlVF0scd --
-// --  nbIEZ6q6LUsdP3yjoQP5bRgUdr6J9deA --
-// --  PfMLPqgQwn2UrGnWJQu81kw5CwEz6OmA --
-// --  jai2oPPH5AuIqY5hzt28V4afEEAWGmso --
-// --  kKVryIgMKFOEzheN7RfvZBviMeJUr7Va --
-// --  LxnLnDFzxXgxoFuIOtc9YLDSZQPOBGOU --
-// --  WW5udpxjD5mFT5mkpGAl1SAsHmpUDeNY --
-// --  W03SkAYXqy7DFtEMhjmlq6h0gxkO4jdm --
-// ---------------------------------------
+// --------- Available API keys ---------
+// -- v1AAIjS1qvgXr2GperDmJDQpoicxWPFR --
+// -- HhiC42zmJzhVPYN9svyGCewbXlVF0scd --
+// -- nbIEZ6q6LUsdP3yjoQP5bRgUdr6J9deA --
+// -- PfMLPqgQwn2UrGnWJQu81kw5CwEz6OmA --
+// -- jai2oPPH5AuIqY5hzt28V4afEEAWGmso --
+// -- kKVryIgMKFOEzheN7RfvZBviMeJUr7Va --
+// -- LxnLnDFzxXgxoFuIOtc9YLDSZQPOBGOU --
+// -- WW5udpxjD5mFT5mkpGAl1SAsHmpUDeNY --
+// -- W03SkAYXqy7DFtEMhjmlq6h0gxkO4jdm --
+// --------------------------------------
 
 export const API_KEY = 'W03SkAYXqy7DFtEMhjmlq6h0gxkO4jdm';
 export const INITIAL_CITY_KEY = 215854;
