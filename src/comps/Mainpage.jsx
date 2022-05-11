@@ -8,7 +8,7 @@ export default function Mainpage() {
     return (
         <div className="mainpage">
             <Routes>
-                <Route path="/" element={<Navigate replace to={"/searchPage"} />} />
+                <Route path="/Amit-Levy-04-05-2022" element={<Navigate replace to={"/searchPage"} />} />
                 <Route path="searchPage" element={<SearchPage />} />
                 <Route path="favorites" element={<Favorites />} />
             </Routes>
