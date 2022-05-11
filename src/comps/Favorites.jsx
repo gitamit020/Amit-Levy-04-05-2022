@@ -24,7 +24,9 @@ export default function Favorites() {
     const getUpdatedFavsWeather = () => {
         const newFavorites = favorites.map((fav) =>
             axios
-                .get(`http://dataservice.accuweather.com/currentconditions/v1/${fav.id}?apikey=${API_KEY}`)
+                .get(
+                    `http://dataservice.accuweather.com/currentconditions/v1/${fav.id}?apikey=${API_KEY}`
+                )
                 .then((res) => ({ ...fav, currentWeather: res.data[0].Temperature.Metric.Value }))
         );
         return Promise.all(newFavorites);
@@ -42,23 +44,29 @@ export default function Favorites() {
         navigate("/searchPage");
     };
 
+    console.log(favorites);
+
     return (
         <div className="favoritesDiv">
-            <Button className="clearFavsDiv" onClick={() => dispatch(clearFavorites())} variant="contained">
+            <Button
+                className="clearFavsDiv"
+                onClick={() => dispatch(clearFavorites())}
+                variant="contained"
+            >
                 <DeleteIcon />
             </Button>
             {favorites.map(({ id, cityName, text, addedOn, currentWeather }, i) => (
                 <Card className="eachFavCard" variant="outlined" key={i}>
                     <Box>
-                        <Typography component={"span"} sx={{ fontWeight: "bold" }} variant="h5">
+                        <Typography sx={{ fontWeight: "bold" }} variant="h5">
                             {cityName}
                         </Typography>
                         <Typography sx={{ fontSize: "25px" }}>{text}</Typography>
                     </Box>
-                    <Typography component={"span"}>
+                    <Typography>
                         <TempDisplay tempInCelsius={currentWeather} />
                     </Typography>
-                    <Typography component={"span"} variant="h7">
+                    <Typography variant="h7">
                         Added on:
                         <br />
                         {moment(addedOn).format("MMMM DD, h:mm a")}
