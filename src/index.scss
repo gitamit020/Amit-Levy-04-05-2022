@@ -20,12 +20,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: linear-gradient(
-            rgba(11, 205, 255, 1),
-            rgba(11, 205, 255, 1),
-            rgba(14, 182, 255, 0.9),
-            rgba(21, 136, 255, 0.8)
-        );
+        background: linear-gradient(rgba(11, 205, 255, 1), rgba(11, 205, 255, 1), rgba(14, 182, 255, 0.9), rgba(21, 136, 255, 0.8));
         padding: 0 3%;
         position: relative;
 
@@ -47,7 +42,7 @@
 
             & * {
                 text-decoration: none;
-                font-size: 1rem;
+                font-size: 1.3rem;
                 transition: all 0.1s ease-in-out;
                 color: rgb(60, 60, 60);
                 font-family: "Oswald", sans-serif;
@@ -144,6 +139,16 @@
             }
         }
     }
+    .Page404Div {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        & > * > * {
+            text-decoration: none;
+            color: rgb(21, 136, 255);
+        }
+    }
 }
 
 @media (max-width: 767px) {
@@ -218,6 +223,9 @@
                     width: 100%;
                 }
             }
+        }
+        .Page404Div {
+            padding: 0 30px;
         }
     }
 }
