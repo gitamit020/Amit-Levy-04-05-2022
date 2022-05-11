@@ -10,7 +10,7 @@
 // -- W03SkAYXqy7DFtEMhjmlq6h0gxkO4jdm --
 // --------------------------------------
 
-export const API_KEY = 'W03SkAYXqy7DFtEMhjmlq6h0gxkO4jdm';
+export const API_KEY = 'nbIEZ6q6LUsdP3yjoQP5bRgUdr6J9deA';
 export const INITIAL_CITY_KEY = 215854;
 export const INITIAL_CITY_NAME = 'Tel Aviv';
 
