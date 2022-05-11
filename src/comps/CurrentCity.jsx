@@ -1,5 +1,5 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
-import { Checkbox } from "@mui/material";
+import { Checkbox, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, rmvFavorite } from "../redux/Actions/favoritesActions";
@@ -11,11 +11,13 @@ export default function CurrentCity() {
     const [checked, setChecked] = useState(false);
     const {
         currentCity: { LocalizedName, Key },
-        currentCityWeather: { WeatherText, Temperature },
+        currentCityWeather: { WeatherText, Temperature }
     } = useSelector((state) => state.currentCityReducer);
 
     useEffect(() => {
-        favorites.map((fav) => (Object.values(fav).includes(Key) ? setChecked(true) : setChecked(false)));
+        favorites.map((fav) =>
+            Object.values(fav).includes(Key) ? setChecked(true) : setChecked(false)
+        );
     }, [LocalizedName]);
 
     const addOrRmvFav = () => {
@@ -29,9 +31,17 @@ export default function CurrentCity() {
 
     return (
         <div className="currentCityDiv">
-            <h1>{LocalizedName}</h1>
+            <Stack direction="row" spacing={3} alignItems="center">
+                <Typography variant="h3">{LocalizedName}</Typography>
+                <Checkbox
+                sx={{transform: "scale(2)"}}
+                    onClick={addOrRmvFav}
+                    checked={checked}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                />
+            </Stack>
             <Forecast />
-            <Checkbox onClick={addOrRmvFav} checked={checked} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
         </div>
     );
 }

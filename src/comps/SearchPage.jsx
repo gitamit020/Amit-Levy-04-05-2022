@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Autocomplete, Button, TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { API_KEY } from "../redux/actionTypes";
+import { Autocomplete, TextField } from "@mui/material";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import CurrentCity from "./CurrentCity";
 import { setCurrentCity, setCurrentCityForecast, setCurrentCityWeather } from "../redux/Actions/currentCityActions";
+import { useDebounce } from "use-debounce";
+import { API_KEY, EXCEPTIONS } from "../consts";
+import { setErrorMsg } from "../redux/Actions/generalActions";
 
 export default function SearchPage() {
     const [inputValue, setInputValue] = useState("");
+    const [debouncedInput] = useDebounce(inputValue, 500);
     const [autoCompleteList, setAutoCompleteList] = useState([]);
     const { currentCity } = useSelector((state) => state.currentCityReducer);
     const dispatch = useDispatch();
@@ -16,19 +18,24 @@ export default function SearchPage() {
     useEffect(() => {
         if (inputValue.length > 0) {
             axios
-                .get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${inputValue}`)
-                .then((res) => setAutoCompleteList(res.data));
+                .get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${inputValue?.split(", ")[0]}`)
+                .then((res) => setAutoCompleteList(res.data))
+                .catch(() => dispatch(setErrorMsg(EXCEPTIONS.COULD_NOT_FETCH_AUTOCOMP)));
+        } else {
+            setAutoCompleteList([]);
         }
-    }, [inputValue]);
+    }, [dispatch, debouncedInput]);
 
-    const handleSearch = () => {
-        dispatch(setCurrentCity(inputValue));
-        dispatch(setCurrentCityForecast(currentCity.Key));
-        dispatch(setCurrentCityWeather(currentCity.key));
+    const handleSearch = (searchText) => {
+        dispatch(setCurrentCity(searchText.split(", ")[0]));
     };
 
-    console.log(currentCity);
-
+    useEffect(() => {
+        if ("Key" in currentCity) {
+            dispatch(setCurrentCityForecast(currentCity.Key));
+            dispatch(setCurrentCityWeather(currentCity.Key));
+        }
+    }, [dispatch, currentCity]);
     return (
         <div className="searchPage">
             <div className="searchBarDiv">
@@ -37,14 +44,12 @@ export default function SearchPage() {
                     value={inputValue}
                     id="free-solo-2-demo"
                     options={autoCompleteList.map(({ LocalizedName, Country }) => `${LocalizedName}, ${Country.LocalizedName}`)}
-                    onChange={(e) => {}}
+                    onChange={(e, value) => {
+                        handleSearch(value);
+                    }}
                     onInputChange={(e, value) => setInputValue(value)}
                     renderInput={(params) => <TextField {...params} label="So what's the weather in..." variant="outlined" fullWidth />}
                 />
-                {/* disabled={inputValue === "" || autoCompleteList.length === 0} */}
-                <Button onClick={handleSearch}>
-                    <SearchIcon />
-                </Button>
             </div>
             <CurrentCity />
         </div>

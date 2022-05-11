@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, CLEAR_FAVORITES, RMV_FAVORITE } from "../actionTypes";
+import { ADD_FAVORITE, CLEAR_FAVORITES, RMV_FAVORITE, SET_FAVORITES } from '../actionTypes';
 
 export const addFavorite = (id, cityName, currentWeather, text) => ({
   type: ADD_FAVORITE,
@@ -7,17 +7,22 @@ export const addFavorite = (id, cityName, currentWeather, text) => ({
     cityName,
     addedOn: Date.now(),
     currentWeather,
-    text,
-  },
+    text
+  }
 });
 
-export const rmvFavorite = (id) => ({
+export const rmvFavorite = id => ({
   type: RMV_FAVORITE,
   payload: {
-    id,
-  },
+    id
+  }
 });
 
 export const clearFavorites = () => ({
-  type: CLEAR_FAVORITES,
+  type: CLEAR_FAVORITES
+});
+
+export const setFavorites = updatedFavorites => ({
+  type: SET_FAVORITES,
+  payload: updatedFavorites
 });
